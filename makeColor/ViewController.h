@@ -10,4 +10,10 @@
 
 @interface ViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIView *colorPane;
+@property (weak, nonatomic) IBOutlet UISlider *redValue;
+@property (weak, nonatomic) IBOutlet UISlider *greenValue;
+@property (weak, nonatomic) IBOutlet UISlider *blueValue;
+
+
 @end

@@ -14,11 +14,41 @@
 
 @implementation ViewController
 
+@synthesize colorPane,redValue,greenValue,blueValue;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self resetControls];
+    
+    
 }
+
+- (IBAction)redAction:(UISlider *)sender {
+    self.colorPane.backgroundColor=[UIColor colorWithRed:self.redValue.value green:self.greenValue.value blue:self.blueValue.value alpha:1.00f];
+
+}
+
+- (IBAction)greenAction:(UISlider *)sender {
+    self.colorPane.backgroundColor=[UIColor colorWithRed:self.redValue.value green:self.greenValue.value blue:self.blueValue.value alpha:1.00f];
+
+}
+
+- (IBAction)blueAction:(UISlider *)sender {
+    self.colorPane.backgroundColor=[UIColor colorWithRed:self.redValue.value green:self.greenValue.value blue:self.blueValue.value alpha:1.00f];
+
+}
+
+
+
+-(void)resetControls
+{
+    self.redValue.value=0;
+    self.greenValue.value=0;
+    self.blueValue.value=0;
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
