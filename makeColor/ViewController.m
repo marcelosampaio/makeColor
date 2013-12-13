@@ -25,18 +25,20 @@
 }
 
 - (IBAction)redAction:(UISlider *)sender {
-    self.colorPane.backgroundColor=[UIColor colorWithRed:self.redValue.value green:self.greenValue.value blue:self.blueValue.value alpha:1.00f];
-
+    [self changeColor];
 }
 
 - (IBAction)greenAction:(UISlider *)sender {
-    self.colorPane.backgroundColor=[UIColor colorWithRed:self.redValue.value green:self.greenValue.value blue:self.blueValue.value alpha:1.00f];
-
+    [self changeColor];
 }
 
 - (IBAction)blueAction:(UISlider *)sender {
-    self.colorPane.backgroundColor=[UIColor colorWithRed:self.redValue.value green:self.greenValue.value blue:self.blueValue.value alpha:1.00f];
+    [self changeColor];
+}
 
+-(void)changeColor
+{
+    self.colorPane.backgroundColor=[UIColor colorWithRed:self.redValue.value green:self.greenValue.value blue:self.blueValue.value alpha:1.00f];     
 }
 
 
