@@ -38,7 +38,7 @@
 
 -(void)changeColor
 {
-    self.colorPane.backgroundColor=[UIColor colorWithRed:self.redValue.value green:self.greenValue.value blue:self.blueValue.value alpha:1.00f];     
+    self.colorPane.backgroundColor=[UIColor colorWithRed:self.redValue.value green:self.greenValue.value blue:self.blueValue.value alpha:1.00f];
 }
 
 
@@ -51,6 +51,17 @@
     
 }
 
+
+// Esconder atatus bar
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+// Não permite rotacao
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
 
 - (void)didReceiveMemoryWarning
 {
