@@ -1,18 +1,80 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3676"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vzm-De-IaI"/>
+                        <viewControllerLayoutGuide type="bottom" id="o9n-Tz-9Iy"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2t-fZ-uJC">
+                                <rect key="frame" x="20" y="20" width="280" height="394"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9XT-at-W3t">
+                                <rect key="frame" x="18" y="433" width="284" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="redAction:" destination="vXZ-lx-hvc" eventType="valueChanged" id="HtV-UI-gKo"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lLw-yH-mJD">
+                                <rect key="frame" x="18" y="474" width="284" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="thumbTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="greenAction:" destination="vXZ-lx-hvc" eventType="valueChanged" id="QRF-JK-T1d"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tQH-9n-kST">
+                                <rect key="frame" x="18" y="515" width="284" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="thumbTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="blueAction:" destination="vXZ-lx-hvc" eventType="valueChanged" id="2Lx-HF-99I"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="P2t-fZ-uJC" secondAttribute="trailing" constant="20" symbolic="YES" id="6N6-ig-fqd"/>
+                            <constraint firstItem="9XT-at-W3t" firstAttribute="leading" secondItem="tQH-9n-kST" secondAttribute="leading" id="Gp5-D9-brf"/>
+                            <constraint firstItem="P2t-fZ-uJC" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="20" id="HgD-h1-9fj"/>
+                            <constraint firstAttribute="bottom" secondItem="tQH-9n-kST" secondAttribute="bottom" constant="20" id="PZ7-Oz-twn"/>
+                            <constraint firstItem="9XT-at-W3t" firstAttribute="trailing" secondItem="tQH-9n-kST" secondAttribute="trailing" id="RWK-Tn-bYk"/>
+                            <constraint firstAttribute="bottom" secondItem="9XT-at-W3t" secondAttribute="bottom" constant="102" id="b4h-JM-cOp"/>
+                            <constraint firstItem="9XT-at-W3t" firstAttribute="trailing" secondItem="P2t-fZ-uJC" secondAttribute="trailing" id="bpP-lr-2bO"/>
+                            <constraint firstItem="lLw-yH-mJD" firstAttribute="top" secondItem="9XT-at-W3t" secondAttribute="bottom" constant="8" symbolic="YES" id="e3y-mL-Nhm"/>
+                            <constraint firstItem="9XT-at-W3t" firstAttribute="top" secondItem="P2t-fZ-uJC" secondAttribute="bottom" constant="19" id="kZU-Q5-OQp"/>
+                            <constraint firstItem="P2t-fZ-uJC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" symbolic="YES" id="pCs-Pj-j9e"/>
+                            <constraint firstItem="P2t-fZ-uJC" firstAttribute="leading" secondItem="9XT-at-W3t" secondAttribute="leading" id="qpB-Br-YKp"/>
+                            <constraint firstItem="9XT-at-W3t" firstAttribute="trailing" secondItem="lLw-yH-mJD" secondAttribute="trailing" id="yVe-ML-3dA"/>
+                            <constraint firstItem="9XT-at-W3t" firstAttribute="leading" secondItem="lLw-yH-mJD" secondAttribute="leading" id="yWE-hq-j3O"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="blueValue" destination="tQH-9n-kST" id="oUs-je-UWT"/>
+                        <outlet property="colorPane" destination="P2t-fZ-uJC" id="67P-D6-GA6"/>
+                        <outlet property="greenValue" destination="lLw-yH-mJD" id="ctd-i4-rg7"/>
+                        <outlet property="redValue" destination="9XT-at-W3t" id="2kK-xe-9fC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

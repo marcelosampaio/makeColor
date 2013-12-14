@@ -396,6 +396,7 @@
 				GCC_PREFIX_HEADER = "makeColor/makeColor-Prefix.pch";
 				INFOPLIST_FILE = "makeColor/makeColor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -409,6 +410,7 @@
 				GCC_PREFIX_HEADER = "makeColor/makeColor-Prefix.pch";
 				INFOPLIST_FILE = "makeColor/makeColor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -474,6 +476,7 @@
 				9CCBC030185AABA2006CD50A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9CCBC031185AABA2006CD50A /* Build configuration list for PBXNativeTarget "makeColorTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +485,7 @@
 				9CCBC033185AABA2006CD50A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

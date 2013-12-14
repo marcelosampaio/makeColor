@@ -20,8 +20,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self resetControls];
-    
-    
 }
 
 - (IBAction)redAction:(UISlider *)sender {
@@ -48,7 +46,19 @@
     self.redValue.value=0;
     self.greenValue.value=0;
     self.blueValue.value=0;
+    [self changeColor];
     
+    self.redValue.minimumTrackTintColor=[UIColor redColor];
+    self.redValue.maximumTrackTintColor=[UIColor blackColor];
+    self.redValue.thumbTintColor=[UIColor redColor];
+    
+    self.greenValue.minimumTrackTintColor=[UIColor greenColor];
+    self.greenValue.maximumTrackTintColor=[UIColor blackColor];
+    self.greenValue.thumbTintColor=[UIColor greenColor];
+
+    self.blueValue.minimumTrackTintColor=[UIColor blueColor];
+    self.blueValue.maximumTrackTintColor=[UIColor blackColor];
+    self.blueValue.thumbTintColor=[UIColor blueColor];
 }
 
 
