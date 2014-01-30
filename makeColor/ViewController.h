@@ -15,5 +15,10 @@
 @property (weak, nonatomic) IBOutlet UISlider *greenValue;
 @property (weak, nonatomic) IBOutlet UISlider *blueValue;
 
+@property (weak, nonatomic) IBOutlet UILabel *labelRed;
+@property (weak, nonatomic) IBOutlet UILabel *labelGreen;
+@property (weak, nonatomic) IBOutlet UILabel *labelBlue;
+
+
 
 @end

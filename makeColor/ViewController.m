@@ -15,6 +15,8 @@
 @implementation ViewController
 
 @synthesize colorPane,redValue,greenValue,blueValue;
+@synthesize labelBlue,labelGreen,labelRed;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -37,6 +39,9 @@
 -(void)changeColor
 {
     self.colorPane.backgroundColor=[UIColor colorWithRed:self.redValue.value green:self.greenValue.value blue:self.blueValue.value alpha:1.00f];
+    self.labelRed.text=[NSString stringWithFormat:@"%f",self.redValue.value];
+    self.labelGreen.text=[NSString stringWithFormat:@"%f",self.greenValue.value];
+    self.labelBlue.text=[NSString stringWithFormat:@"%f",self.blueValue.value];
 }
 
 
@@ -46,6 +51,12 @@
     self.redValue.value=0;
     self.greenValue.value=0;
     self.blueValue.value=0;
+    
+    self.labelRed.text=@"0";
+    self.labelGreen.text=@"0";
+    self.labelBlue.text=@"0";
+    
+
     [self changeColor];
     
     self.redValue.minimumTrackTintColor=[UIColor redColor];
