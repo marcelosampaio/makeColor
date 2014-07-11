@@ -26,5 +26,6 @@
 -(void)addPresentantionWithName:(NSString *)presentation transitionTime:(float)transitionTime transitionAudio:(NSString *)transitonAudio;
 -(NSMutableArray *) getPresentations;
 -(void)removePresententionWithRowId:(int)rowId;
+-(void)removeTransitionWithPresentationId:(int)presentationId;
 
 @end

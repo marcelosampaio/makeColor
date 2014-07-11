@@ -128,6 +128,7 @@
         Presentation *presentation=[self.presentations objectAtIndex:indexPath.row];
         [addPresentationViewController setSegueName:presentation.name];
         [addPresentationViewController setSegueValue:presentation.transitionTime];
+        [addPresentationViewController setSegueRowId:presentation.rowId];
     }
     
     

@@ -15,7 +15,7 @@
 @implementation AddPresentationViewController
 @synthesize presentationName,transitionTime;
 @synthesize database;
-@synthesize segueParameter,segueName,segueValue;
+@synthesize segueParameter,segueName,segueValue,segueRowId;
 @synthesize removeOutlet;
 
 #pragma mark - Initialization
@@ -84,6 +84,9 @@
 
 }
 - (IBAction)removePresentation:(id)sender {
+    NSLog(@"remove RowId=%d",segueRowId);
+    [self.database removePresententionWithRowId:segueRowId];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

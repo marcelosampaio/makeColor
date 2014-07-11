@@ -26,6 +26,7 @@
 @property (nonatomic,strong) NSString *segueParameter;
 @property (nonatomic,strong) NSString *segueName;
 @property float segueValue;
+@property int segueRowId;
 
 
 @end

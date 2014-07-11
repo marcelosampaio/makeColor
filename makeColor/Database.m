@@ -141,7 +141,36 @@
 
 -(void)removePresententionWithRowId:(int)rowId
 {
+    // Remove Presentation
+    // error variable for database call
+    char *err;
     
+    // sql string
+    NSString *sql=[NSString stringWithFormat:@"delete from presentation where rowId=%d",rowId];
+    
+    // execute database command
+    if (sqlite3_exec(db, [sql UTF8String], NULL, NULL, &err) != SQLITE_OK) {
+        [self closeDB];
+        NSAssert(0, @"Database error - deletePresentation Method error=%s",err);
+    }
+
+    
+    // Remove Transitions of the Presentation
+    [self removeTransitionWithPresentationId:rowId];
+}
+-(void)removeTransitionWithPresentationId:(int)presentationId
+{
+    // error variable for database call
+    char *err;
+    
+    // sql string
+    NSString *sql=[NSString stringWithFormat:@"delete from transition where presentationId=%d",presentationId];
+    
+    // execute database command
+    if (sqlite3_exec(db, [sql UTF8String], NULL, NULL, &err) != SQLITE_OK) {
+        [self closeDB];
+        NSAssert(0, @"Database error - deleteTransition Method error=%s",err);
+    }
 }
 
 @end
