@@ -13,8 +13,9 @@
 @property (nonatomic,strong) NSString *name;
 @property float transitionTime;
 @property (nonatomic,strong) NSString *transitionAudio;
+@property int rowId;
 
 
--(id)initWithName:(NSString *)mName transitionTime:(float)mTransitionTime transitionAudio:(NSString *)mTransitionAudio;
+-(id)initWithName:(NSString *)mName transitionTime:(float)mTransitionTime transitionAudio:(NSString *)mTransitionAudio rowId:(int)mRowId;
 
 @end

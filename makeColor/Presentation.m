@@ -10,16 +10,17 @@
 
 @implementation Presentation
 
-@synthesize name,transitionTime,transitionAudio;
+@synthesize name,transitionTime,transitionAudio,rowId;
 
 
--(id)initWithName:(NSString *)mName transitionTime:(float)mTransitionTime transitionAudio:(NSString *)mTransitionAudio
+-(id)initWithName:(NSString *)mName transitionTime:(float)mTransitionTime transitionAudio:(NSString *)mTransitionAudio rowId:(int)mRowId
 {
     self=[super init];
     if (self) {
         name=mName;
         transitionTime=mTransitionTime;
         transitionAudio=mTransitionAudio;
+        rowId=mRowId;
     }    
     return self;
 }

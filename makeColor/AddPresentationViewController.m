@@ -15,7 +15,8 @@
 @implementation AddPresentationViewController
 @synthesize presentationName,transitionTime;
 @synthesize database;
-
+@synthesize segueParameter,segueName,segueValue;
+@synthesize removeOutlet;
 
 #pragma mark - Initialization
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,6 +31,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    NSLog(@"segue parameter = %@",self.segueParameter);
+    if ([self.segueParameter isEqualToString:@"ADD"]) {
+        [self.navigationItem.rightBarButtonItem setTitle:@"Save"];
+        self.removeOutlet.hidden=YES;
+    } else if ([self.segueParameter isEqualToString:@"EDIT"]) {
+        [self.navigationItem.rightBarButtonItem setTitle:@"Update"];
+        self.presentationName.text=self.segueName;
+        self.transitionTime.value=self.segueValue;
+        self.removeOutlet.hidden=NO;
+    }
+    
+    
     // Database
     self.database=[[Database alloc]init];
     // Open database
@@ -38,7 +52,9 @@
     // Dismiss keyboard delegate
     self.presentationName.delegate=self;
 }
-
+-(void)doAddAction {
+    
+}
 
 #pragma mark - UI Actions
 - (IBAction)save:(id)sender {
@@ -67,6 +83,10 @@
 - (IBAction)setTranstitionTime:(id)sender {
 
 }
+- (IBAction)removePresentation:(id)sender {
+}
+
+
 
 #pragma mark - Working Methods
 -(void)dataEntryAlertWithMessage:(NSString *)message

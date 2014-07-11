@@ -13,11 +13,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="5bK-2d-ctz" detailTextLabel="8if-iK-hW1" style="IBUITableViewCellStyleValue1" id="DR3-dN-yGL">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="5bK-2d-ctz" detailTextLabel="8if-iK-hW1" style="IBUITableViewCellStyleValue1" id="DR3-dN-yGL">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DR3-dN-yGL" id="ANb-D9-226">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5bK-2d-ctz">
@@ -28,7 +28,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8if-iK-hW1">
-                                            <rect key="frame" x="246" y="11" width="59" height="21"/>
+                                            <rect key="frame" x="226" y="11" width="59" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
@@ -36,6 +36,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="1nH-Ut-DU1" kind="push" identifier="editPresentation" id="oKy-8c-MxM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -102,11 +105,22 @@
                                     <action selector="setTranstitionTime:" destination="1nH-Ut-DU1" eventType="valueChanged" id="ZK5-HT-Q0a"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEt-9d-ja1">
+                                <rect key="frame" x="20" y="492" width="280" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Remove Presentation">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="removePresentation:" destination="1nH-Ut-DU1" eventType="touchUpInside" id="XRM-nd-5Tq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="45U-rx-wN9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="C2d-7J-p3K">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="C2d-7J-p3K">
                             <connections>
                                 <action selector="save:" destination="1nH-Ut-DU1" id="IJv-Y1-ksn"/>
                             </connections>
@@ -114,13 +128,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="presentationName" destination="rLw-fK-lSp" id="Ryx-dg-jaC"/>
+                        <outlet property="removeOutlet" destination="KEt-9d-ja1" id="zBo-oa-NM6"/>
                         <outlet property="saveOutlet" destination="C2d-7J-p3K" id="Ypf-xE-IIa"/>
                         <outlet property="transitionTime" destination="Leo-nC-I2J" id="2cA-rv-QTN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ect-CP-dHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1041" y="-847"/>
+            <point key="canvasLocation" x="1125" y="-783"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DVs-XG-fbd">
@@ -149,4 +164,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="oKy-8c-MxM"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -108,7 +108,7 @@
     NSMutableArray *objectArray=[[NSMutableArray alloc]init];
     
     // Get favorites from database
-    NSString *sql = [NSString stringWithFormat:@"select * from presentation order by presentation"];
+    NSString *sql = [NSString stringWithFormat:@"select presentation, transitionTime, transitionAudio, rowId from presentation order by presentation"];
     
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(db, [sql UTF8String], -1, &statement, nil)==SQLITE_OK)
@@ -126,13 +126,22 @@
             // transition audio
             char *field3 = (char *) sqlite3_column_text(statement, 2);
             NSString *transitionAudio = [[NSString alloc] initWithUTF8String:field3];
- 
-            [objectArray addObject:[[Presentation alloc]initWithName:name transitionTime:[transitionTime floatValue] transitionAudio:transitionAudio]];
+            
+            // row Id
+            char *field4 = (char *) sqlite3_column_text(statement, 3);
+            NSString *rowId = [[NSString alloc] initWithUTF8String:field4];
+
+            [objectArray addObject:[[Presentation alloc]initWithName:name transitionTime:[transitionTime floatValue] transitionAudio:transitionAudio rowId:[rowId intValue]]];
 
         }
     }
     return objectArray;
 
+}
+
+-(void)removePresententionWithRowId:(int)rowId
+{
+    
 }
 
 @end

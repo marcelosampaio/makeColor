@@ -14,11 +14,18 @@
 @property (weak, nonatomic) IBOutlet UITextField *presentationName;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveOutlet;
 @property (weak, nonatomic) IBOutlet UISlider *transitionTime;
+@property (weak, nonatomic) IBOutlet UIButton *removeOutlet;
+
 
 
 // Database property
 @property (nonatomic,strong) Database *database;
 
+
+// Segue parameter
+@property (nonatomic,strong) NSString *segueParameter;
+@property (nonatomic,strong) NSString *segueName;
+@property float segueValue;
 
 
 @end

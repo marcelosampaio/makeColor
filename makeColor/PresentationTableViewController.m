@@ -8,6 +8,7 @@
 
 #import "PresentationTableViewController.h"
 #import "Presentation.h"
+#import "AddPresentationViewController.h"
 
 @interface PresentationTableViewController ()
 
@@ -113,6 +114,23 @@
     return cell;
 }
 
-
+#pragma mark - Navigation
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    AddPresentationViewController *addPresentationViewController;
+    addPresentationViewController=segue.destinationViewController;
+    NSIndexPath *indexPath=[self.tableView indexPathForSelectedRow];
+    
+    if ([[segue identifier]isEqualToString:@"addPresentation"]) {
+        [addPresentationViewController setSegueParameter:@"ADD"];
+    } else if ([[segue identifier]isEqualToString:@"editPresentation"]) {
+        [addPresentationViewController setSegueParameter:@"EDIT"];
+        Presentation *presentation=[self.presentations objectAtIndex:indexPath.row];
+        [addPresentationViewController setSegueName:presentation.name];
+        [addPresentationViewController setSegueValue:presentation.transitionTime];
+    }
+    
+    
+}
 
 @end
