@@ -28,4 +28,8 @@
 -(void)removePresententionWithRowId:(int)rowId;
 -(void)removeTransitionWithPresentationId:(int)presentationId;
 
+#pragma mark - Transition Methods
+-(NSMutableArray *) getTransitions;
+-(void) addTransitionWithRed:(float)red green:(float)green blue:(float)blue;
+
 @end

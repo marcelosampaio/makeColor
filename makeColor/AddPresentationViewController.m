@@ -32,7 +32,6 @@
 {
     [super viewDidLoad];
 
-    NSLog(@"segue parameter = %@",self.segueParameter);
     if ([self.segueParameter isEqualToString:@"ADD"]) {
         [self.navigationItem.rightBarButtonItem setTitle:@"Save"];
         self.removeOutlet.hidden=YES;
@@ -52,39 +51,36 @@
     // Dismiss keyboard delegate
     self.presentationName.delegate=self;
 }
--(void)doAddAction {
-    
-}
+
 
 #pragma mark - UI Actions
-- (IBAction)save:(id)sender {
-    
-    // Dismiss keyboard from UI
-    [self.presentationName resignFirstResponder];
-    
-    // check if presentation's name is filled
-    if (self.presentationName.text.length==0) {
-        [self dataEntryAlertWithMessage:@"Fill presentation's name!"];
-        return;
-    }
-    BOOL nameExists=[self.database presentationExistsWithName:self.presentationName.text];
-    if (nameExists) {
-        [self dataEntryAlertWithMessage:@"Name already exists!"];
-        return;
-    }
-    
-    // Add presentation to database
-    [self.database addPresentantionWithName:presentationName.text transitionTime:self.transitionTime.value transitionAudio:@""];
-
-
-    // Return to presentations
-    [self.navigationController popViewControllerAnimated:YES];
-}
+//- (IBAction)save:(id)sender {
+//    
+//    // Dismiss keyboard from UI
+//    [self.presentationName resignFirstResponder];
+//    
+//    // check if presentation's name is filled
+//    if (self.presentationName.text.length==0) {
+//        [self dataEntryAlertWithMessage:@"Fill presentation's name!"];
+//        return;
+//    }
+//    BOOL nameExists=[self.database presentationExistsWithName:self.presentationName.text];
+//    if (nameExists) {
+//        [self dataEntryAlertWithMessage:@"Name already exists!"];
+//        return;
+//    }
+//    
+//    // Add presentation to database
+//    [self.database addPresentantionWithName:presentationName.text transitionTime:self.transitionTime.value transitionAudio:@""];
+//
+//
+//    // Return to presentations
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 - (IBAction)setTranstitionTime:(id)sender {
 
 }
 - (IBAction)removePresentation:(id)sender {
-    NSLog(@"remove RowId=%d",segueRowId);
     [self.database removePresententionWithRowId:segueRowId];
     [self.navigationController popViewControllerAnimated:YES];
 }

@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		9CA9FA83197034B800C540D4 /* PresentationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA9FA82197034B800C540D4 /* PresentationTableViewController.m */; };
-		9CA9FA8519703EE400C540D4 /* makeColor.db in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9FA8419703EE400C540D4 /* makeColor.db */; };
 		9CA9FA8719703F5500C540D4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA9FA8619703F5500C540D4 /* libsqlite3.dylib */; };
 		9CA9FA8A1970412800C540D4 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA9FA891970412800C540D4 /* Database.m */; };
 		9CA9FA8D19705D4D00C540D4 /* AddPresentationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA9FA8C19705D4D00C540D4 /* AddPresentationViewController.m */; };
 		9CA9FA901970790A00C540D4 /* Presentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA9FA8F1970790A00C540D4 /* Presentation.m */; };
+		9CA9FA93197184FF00C540D4 /* TransitionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA9FA92197184FF00C540D4 /* TransitionTableViewController.m */; };
+		9CA9FA9619718B2000C540D4 /* Transition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA9FA9519718B2000C540D4 /* Transition.m */; };
+		9CA9FA9C19719AC100C540D4 /* AddTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA9FA9B19719AC100C540D4 /* AddTransitionViewController.m */; };
+		9CA9FAA01971ADF800C540D4 /* makeColor.db in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9FA9F1971ADF800C540D4 /* makeColor.db */; };
+		9CA9FAA31971BBA000C540D4 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA9FAA21971BBA000C540D4 /* PlayerViewController.m */; };
 		9CCBBFFD185AABA2006CD50A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCBBFFC185AABA2006CD50A /* Foundation.framework */; };
 		9CCBBFFF185AABA2006CD50A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCBBFFE185AABA2006CD50A /* CoreGraphics.framework */; };
 		9CCBC001185AABA2006CD50A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCBC000185AABA2006CD50A /* UIKit.framework */; };
@@ -42,7 +46,6 @@
 /* Begin PBXFileReference section */
 		9CA9FA81197034B800C540D4 /* PresentationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationTableViewController.h; sourceTree = "<group>"; };
 		9CA9FA82197034B800C540D4 /* PresentationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentationTableViewController.m; sourceTree = "<group>"; };
-		9CA9FA8419703EE400C540D4 /* makeColor.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = makeColor.db; sourceTree = "<group>"; };
 		9CA9FA8619703F5500C540D4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		9CA9FA881970412800C540D4 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		9CA9FA891970412800C540D4 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
@@ -50,6 +53,15 @@
 		9CA9FA8C19705D4D00C540D4 /* AddPresentationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPresentationViewController.m; sourceTree = "<group>"; };
 		9CA9FA8E1970790A00C540D4 /* Presentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Presentation.h; sourceTree = "<group>"; };
 		9CA9FA8F1970790A00C540D4 /* Presentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Presentation.m; sourceTree = "<group>"; };
+		9CA9FA91197184FE00C540D4 /* TransitionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionTableViewController.h; sourceTree = "<group>"; };
+		9CA9FA92197184FF00C540D4 /* TransitionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionTableViewController.m; sourceTree = "<group>"; };
+		9CA9FA9419718B2000C540D4 /* Transition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transition.h; sourceTree = "<group>"; };
+		9CA9FA9519718B2000C540D4 /* Transition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transition.m; sourceTree = "<group>"; };
+		9CA9FA9A19719AC100C540D4 /* AddTransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTransitionViewController.h; sourceTree = "<group>"; };
+		9CA9FA9B19719AC100C540D4 /* AddTransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTransitionViewController.m; sourceTree = "<group>"; };
+		9CA9FA9F1971ADF800C540D4 /* makeColor.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = makeColor.db; sourceTree = "<group>"; };
+		9CA9FAA11971BBA000C540D4 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		9CA9FAA21971BBA000C540D4 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		9CCBBFF9185AABA2006CD50A /* makeColor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = makeColor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CCBBFFC185AABA2006CD50A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9CCBBFFE185AABA2006CD50A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -135,12 +147,20 @@
 				9CA9FA891970412800C540D4 /* Database.m */,
 				9CA9FA8E1970790A00C540D4 /* Presentation.h */,
 				9CA9FA8F1970790A00C540D4 /* Presentation.m */,
+				9CA9FA9419718B2000C540D4 /* Transition.h */,
+				9CA9FA9519718B2000C540D4 /* Transition.m */,
 				9CCBC00E185AABA2006CD50A /* Main_iPhone.storyboard */,
 				9CCBC011185AABA2006CD50A /* Main_iPad.storyboard */,
 				9CA9FA81197034B800C540D4 /* PresentationTableViewController.h */,
 				9CA9FA82197034B800C540D4 /* PresentationTableViewController.m */,
 				9CA9FA8B19705D4D00C540D4 /* AddPresentationViewController.h */,
 				9CA9FA8C19705D4D00C540D4 /* AddPresentationViewController.m */,
+				9CA9FA91197184FE00C540D4 /* TransitionTableViewController.h */,
+				9CA9FA92197184FF00C540D4 /* TransitionTableViewController.m */,
+				9CA9FA9A19719AC100C540D4 /* AddTransitionViewController.h */,
+				9CA9FA9B19719AC100C540D4 /* AddTransitionViewController.m */,
+				9CA9FAA11971BBA000C540D4 /* PlayerViewController.h */,
+				9CA9FAA21971BBA000C540D4 /* PlayerViewController.m */,
 				9CCBC017185AABA2006CD50A /* Images.xcassets */,
 				9CCBC003185AABA2006CD50A /* Supporting Files */,
 			);
@@ -150,7 +170,7 @@
 		9CCBC003185AABA2006CD50A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9CA9FA8419703EE400C540D4 /* makeColor.db */,
+				9CA9FA9F1971ADF800C540D4 /* makeColor.db */,
 				9CCBC004185AABA2006CD50A /* makeColor-Info.plist */,
 				9CCBC005185AABA2006CD50A /* InfoPlist.strings */,
 				9CCBC008185AABA2006CD50A /* main.m */,
@@ -260,7 +280,7 @@
 				9CCBC018185AABA2006CD50A /* Images.xcassets in Resources */,
 				9CCBC010185AABA2006CD50A /* Main_iPhone.storyboard in Resources */,
 				9CCBC007185AABA2006CD50A /* InfoPlist.strings in Resources */,
-				9CA9FA8519703EE400C540D4 /* makeColor.db in Resources */,
+				9CA9FAA01971ADF800C540D4 /* makeColor.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,11 +300,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CA9FA83197034B800C540D4 /* PresentationTableViewController.m in Sources */,
+				9CA9FA93197184FF00C540D4 /* TransitionTableViewController.m in Sources */,
+				9CA9FA9619718B2000C540D4 /* Transition.m in Sources */,
 				9CA9FA901970790A00C540D4 /* Presentation.m in Sources */,
+				9CA9FA9C19719AC100C540D4 /* AddTransitionViewController.m in Sources */,
 				9CA9FA8D19705D4D00C540D4 /* AddPresentationViewController.m in Sources */,
 				9CCBC00D185AABA2006CD50A /* AppDelegate.m in Sources */,
 				9CA9FA8A1970412800C540D4 /* Database.m in Sources */,
 				9CCBC009185AABA2006CD50A /* main.m in Sources */,
+				9CA9FAA31971BBA000C540D4 /* PlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

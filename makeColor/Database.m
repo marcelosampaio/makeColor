@@ -8,6 +8,7 @@
 
 #import "Database.h"
 #import "Presentation.h"
+#import "Transition.h"
 
 #define DATABASE_NAME @"makeColor.db"
 
@@ -172,5 +173,59 @@
         NSAssert(0, @"Database error - deleteTransition Method error=%s",err);
     }
 }
+
+
+#pragma mark - Transition Methods
+-(NSMutableArray *) getTransitions
+{
+    NSMutableArray *objectArray=[[NSMutableArray alloc]init];
+    
+    // Get favorites from database
+    NSString *sql = [NSString stringWithFormat:@"select red, green, blue, rowId from Transition order by rowId"];
+    
+    sqlite3_stmt *statement;
+    if (sqlite3_prepare_v2(db, [sql UTF8String], -1, &statement, nil)==SQLITE_OK)
+    {
+        while(sqlite3_step(statement)==SQLITE_ROW)
+        {
+            // red
+            char *field1 = (char *) sqlite3_column_text(statement, 0);
+            NSString *red = [[NSString alloc] initWithUTF8String:field1];
+            
+            // green
+            char *field2 = (char *) sqlite3_column_text(statement, 1);
+            NSString *green = [[NSString alloc] initWithUTF8String:field2];
+            
+            // blue
+            char *field3 = (char *) sqlite3_column_text(statement, 2);
+            NSString *blue = [[NSString alloc] initWithUTF8String:field3];
+            
+            // row Id
+            char *field4 = (char *) sqlite3_column_text(statement, 3);
+            NSString *rowId = [[NSString alloc] initWithUTF8String:field4];
+            
+            [objectArray addObject:[[Transition alloc]initWithRed:[red floatValue] green:[green floatValue] blue:[blue floatValue] rowId:[rowId intValue]]];
+        }
+    }
+    return objectArray;
+    
+}
+-(void) addTransitionWithRed:(float)red green:(float)green blue:(float)blue
+{
+    // error variable for database call
+    char *err;
+    
+    // sql string
+    NSString *sql=[NSString stringWithFormat:@"insert into transition (red,green,blue) values (%f,%f,%f)",red,green,blue];
+    
+    // execute database command
+    if (sqlite3_exec(db, [sql UTF8String], NULL, NULL, &err) != SQLITE_OK) {
+//        NSAssert(0, @"Database error - addTransition Method error=%s",err);
+
+        NSLog(@"erro no banco de dados - %@",db);
+    }
+
+}
+
 
 @end
