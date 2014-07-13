@@ -81,7 +81,9 @@
     self.transitions=[self.database getTransitions];
 }
 -(void)redPulsing {
-    self.redNewValue=self.redNewValue+self.redSeed;
+    if (self.redBegin!=self.redEnd) {
+        self.redNewValue=self.redNewValue+self.redSeed;
+    }
     
     if (redBegin<self.redEnd) {
         if (self.redNewValue>self.redEnd) {
@@ -96,7 +98,9 @@
     }
 }
 -(void)greenPulsing {
-    self.greenNewValue=self.greenNewValue+self.greenSeed;
+    if (self.greenBegin!=self.greenEnd) {
+        self.greenNewValue=self.greenNewValue+self.greenSeed;
+    }
     
     if (greenBegin<self.greenEnd) {
         if (self.greenNewValue>self.greenEnd) {
@@ -111,7 +115,9 @@
     }
 }
 -(void)bluePulsing {
-    self.blueNewValue=self.blueNewValue+self.blueSeed;
+    if (self.blueBegin!=self.blueEnd) {
+        self.blueNewValue=self.blueNewValue+self.blueSeed;
+    }
     
     if (blueBegin<self.blueEnd) {
         if (self.blueNewValue>self.blueEnd) {
