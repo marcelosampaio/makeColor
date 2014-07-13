@@ -184,7 +184,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="play" id="Vpw-4C-mPf">
                             <connections>
                                 <action selector="play:" destination="B8P-e3-oU8" id="wEj-9v-wJY"/>
-                                <segue destination="2Rg-Mf-vkU" kind="push" id="C5N-ag-J3K"/>
+                                <segue destination="2Rg-Mf-vkU" kind="push" identifier="playTransitions" id="C5N-ag-J3K"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -73,6 +73,14 @@
     [self redPulsing];
     [self greenPulsing];
     [self bluePulsing];
+    
+    // Check stopSeeding
+    if (self.redStopSeeding && self.greenStopSeeding && self.blueStopSeeding) {
+        NSLog(@"******* STOP SEEDING event reached ******* count=%d   index=%d",self.transitions.count,self.index);
+        [self.timer invalidate];
+    }
+    
+    
     self.imageView.backgroundColor=[UIColor colorWithRed:self.redNewValue green:self.greenNewValue blue:self.blueNewValue alpha:1];
 }
 
@@ -83,6 +91,9 @@
 -(void)redPulsing {
     if (self.redBegin!=self.redEnd) {
         self.redNewValue=self.redNewValue+self.redSeed;
+    } else {
+        self.redStopSeeding=YES;
+        return;
     }
     
     if (redBegin<self.redEnd) {
@@ -100,6 +111,9 @@
 -(void)greenPulsing {
     if (self.greenBegin!=self.greenEnd) {
         self.greenNewValue=self.greenNewValue+self.greenSeed;
+    }else{
+        self.greenStopSeeding=YES;
+        return;
     }
     
     if (greenBegin<self.greenEnd) {
@@ -117,6 +131,9 @@
 -(void)bluePulsing {
     if (self.blueBegin!=self.blueEnd) {
         self.blueNewValue=self.blueNewValue+self.blueSeed;
+    }else{
+        self.blueStopSeeding=YES;
+        return;
     }
     
     if (blueBegin<self.blueEnd) {
