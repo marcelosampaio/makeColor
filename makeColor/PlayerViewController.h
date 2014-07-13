@@ -22,7 +22,6 @@
 @property (nonatomic,strong) Database *database;
 
 // transitions in action
-@property float seed;
 @property int index;
 
 @property float redBegin;
@@ -32,6 +31,15 @@
 @property float blueBegin;
 @property float blueEnd;
 
-@property float greenNewValue;
+@property float redSeed;
+@property float greenSeed;
+@property float blueSeed;
 
+@property BOOL redStopSeeding;
+@property BOOL greenStopSeeding;
+@property BOOL blueStopSeeding;
+
+@property float redNewValue;
+@property float greenNewValue;
+@property float blueNewValue;
 @end

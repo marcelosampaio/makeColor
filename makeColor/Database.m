@@ -207,6 +207,7 @@
             [objectArray addObject:[[Transition alloc]initWithRed:[red floatValue] green:[green floatValue] blue:[blue floatValue] rowId:[rowId intValue]]];
         }
     }
+
     return objectArray;
     
 }

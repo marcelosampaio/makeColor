@@ -10,6 +10,7 @@
 #import "Transition.h"
 
 @interface PlayerViewController ()
+@property BOOL firstTime;
 
 @end
 
@@ -19,9 +20,11 @@
 @synthesize timer;
 @synthesize transitions;
 @synthesize database;
-@synthesize seed,index;
+@synthesize redSeed,greenSeed,blueSeed,index;
 @synthesize greenBegin,greenEnd,redBegin,redEnd,blueBegin,blueEnd;
-@synthesize greenNewValue;
+@synthesize redNewValue,greenNewValue,blueNewValue;
+@synthesize redStopSeeding,greenStopSeeding,blueStopSeeding;
+@synthesize firstTime;
 
 
 #pragma mark - View Initialization
@@ -37,15 +40,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.firstTime=YES;
+    // database
+    self.database=[[Database alloc]init];
+    [self.database openDB];
+    
     // transitions is action
-    self.seed=0.005f;
+    self.redSeed=0.005f;
+    self.greenSeed=0.005f;
+    self.blueSeed=0.005f;
     self.index=1;
+    self.redStopSeeding=NO;
+    self.greenStopSeeding=NO;
+    self.blueStopSeeding=NO;
 
+    [self loadTransitions];
+    [self loopControl];
     
     // main loop
     self.timer=[NSTimer scheduledTimerWithTimeInterval:0.01f target:self selector:@selector(pulse) userInfo:nil repeats:YES];
-    [self loadTransitions];
-    [self loopControl];
+
     
 }
 -(void)viewWillDisappear:(BOOL)animated {
@@ -56,8 +70,10 @@
 
 #pragma mark - Timer Methods
 -(void)pulse {
-    NSLog(@".......");
+    [self redPulsing];
     [self greenPulsing];
+    [self bluePulsing];
+    self.imageView.backgroundColor=[UIColor colorWithRed:self.redNewValue green:self.greenNewValue blue:self.blueNewValue alpha:1];
 }
 
 #pragma mark - Working Methods
@@ -65,40 +81,82 @@
     self.transitions=[self.database getTransitions];
 }
 -(void)redPulsing {
+    self.redNewValue=self.redNewValue+self.redSeed;
     
+    if (redBegin<self.redEnd) {
+        if (self.redNewValue>self.redEnd) {
+            self.redStopSeeding=YES;
+            return;
+        }
+    } else {
+        if (self.redNewValue<self.redEnd) {
+            self.redStopSeeding=YES;
+            return;
+        }
+    }
 }
 -(void)greenPulsing {
-    self.greenNewValue=self.greenNewValue+seed;
+    self.greenNewValue=self.greenNewValue+self.greenSeed;
     
-    NSLog(@"newValue=%f         end=%f",self.greenNewValue,self.greenEnd);
-    
-    
-    if (self.greenNewValue>self.greenEnd) {
-        NSLog(@"GREEN stop seeding");
-        return;
+    if (greenBegin<self.greenEnd) {
+        if (self.greenNewValue>self.greenEnd) {
+            self.greenStopSeeding=YES;
+            return;
+        }
+    } else {
+        if (self.greenNewValue<self.greenEnd) {
+            self.greenStopSeeding=YES;
+            return;
+        }
     }
-    self.imageView.backgroundColor=[UIColor colorWithRed:self.redBegin green:self.greenNewValue blue:self.blueBegin alpha:1];
-
 }
 -(void)bluePulsing {
+    self.blueNewValue=self.blueNewValue+self.blueSeed;
     
+    if (blueBegin<self.blueEnd) {
+        if (self.blueNewValue>self.blueEnd) {
+            self.blueStopSeeding=YES;
+            return;
+        }
+    } else {
+        if (self.blueNewValue<self.blueEnd) {
+            self.blueStopSeeding=YES;
+            return;
+        }
+    }
 }
 -(void)loopControl {
+    
     Transition *transitionBegin=[self.transitions objectAtIndex:index-1];
     Transition *transitionEnd=[self.transitions objectAtIndex:index];
 
     // Range Values
-    self.redBegin=transitionBegin.red;
-    self.redEnd=transitionEnd.red;
+    if (self.firstTime) {
+        self.redBegin=transitionBegin.red;
+        self.redEnd=transitionEnd.red;
+        self.redNewValue=self.redBegin;
+        
+        self.greenBegin=transitionBegin.green;
+        self.greenEnd=transitionEnd.green;
+        self.greenNewValue=self.greenBegin;
+        
+        self.blueBegin=transitionBegin.blue;
+        self.blueEnd=transitionEnd.blue;
+        self.blueNewValue=self.blueBegin;
+        
+        self.firstTime=NO;
+    }
     
-    self.greenBegin=transitionBegin.green;
-    self.greenEnd=transitionEnd.green;
-    self.greenNewValue=self.greenBegin;
-    
-    NSLog(@"greenBegin=%f  greenEnd=%f",self.greenBegin,self.greenEnd);
-    
-    self.blueBegin=transitionBegin.blue;
-    self.blueEnd=transitionEnd.blue;
+    //Seeds
+    if (self.redBegin>self.redEnd) {
+        self.redSeed=self.redSeed * -1;
+    }
+    if (self.greenBegin>self.greenEnd) {
+        self.greenSeed=self.greenSeed * -1;
+    }
+    if (self.blueBegin>self.blueEnd) {
+        self.blueSeed=self.blueSeed * -1;
+    }
 }
 
 /*
