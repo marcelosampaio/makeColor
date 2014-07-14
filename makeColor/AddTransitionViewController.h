@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Database.h"
+#import "Transition.h"
 
 @interface AddTransitionViewController : UIViewController
 
@@ -22,8 +23,7 @@
 
 // segue parameter
 @property (strong,nonatomic) NSString *segueAction;
-@property int segueTransitionRowId;
-
+@property (strong,nonatomic) Transition *transition;
 
 
 @end

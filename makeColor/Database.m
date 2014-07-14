@@ -228,6 +228,23 @@
 
 }
 
+-(void) updateTransitionWithRowId:(int)rowId red:(float)red green:(float)green blue:(float)blue
+{
+    // error variable for database call
+    char *err;
+    
+    // sql string
+    NSString *sql=[NSString stringWithFormat:@"update transition set red=%f, green=%f, blue=%f where rowId=%d",red,green,blue,rowId];
+
+    // execute database command
+    if (sqlite3_exec(db, [sql UTF8String], NULL, NULL, &err) != SQLITE_OK) {
+        //        NSAssert(0, @"Database error - addTransition Method error=%s",err);
+        
+        NSLog(@"erro no banco de dados - updateTransition - %@",db);
+    }
+}
+
+
 -(void) removeTransitionWithRowId:(int)rowId
 {
     // error variable for database call

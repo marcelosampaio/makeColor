@@ -31,6 +31,7 @@
 #pragma mark - Transition Methods
 -(NSMutableArray *) getTransitions;
 -(void) addTransitionWithRed:(float)red green:(float)green blue:(float)blue;
+-(void) updateTransitionWithRowId:(int)rowId red:(float)red green:(float)green blue:(float)blue;
 -(void) removeTransitionWithRowId:(int)rowId;
 
 @end

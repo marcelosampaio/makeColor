@@ -155,10 +155,9 @@
   
     } else if ([[segue identifier]isEqualToString:@"addTransition"]) {
         [addTransitionViewController setSegueAction:@"ADD"];
-        [addTransitionViewController setSegueTransitionRowId:0];
     } else if ([[segue identifier]isEqualToString:@"editTransition"]) {
         [addTransitionViewController setSegueAction:@"EDIT"];
-        [addTransitionViewController setSegueTransitionRowId:transition.rowId];
+        [addTransitionViewController setTransition:transition];
     }
     
     

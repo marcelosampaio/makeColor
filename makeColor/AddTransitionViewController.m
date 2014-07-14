@@ -16,7 +16,7 @@
 
 @synthesize database;
 @synthesize imageView,redSlider,greenSlider,blueSlider;
-@synthesize segueAction,segueTransitionRowId;
+@synthesize segueAction,transition;
 
 
 
@@ -45,8 +45,14 @@
     self.database=[[Database alloc]init];
     [self.database openDB];
     
-    NSLog(@"segueAction = %@   segueTransitionRowId=%d",self.segueAction,self.segueTransitionRowId);
-
+    if ([self.segueAction isEqualToString:@"EDIT"]) {
+        self.imageView.backgroundColor=[UIColor colorWithRed:self.transition.red green:self.transition.green blue:self.transition.blue alpha:1];
+        self.redSlider.value=self.transition.red;
+        self.greenSlider.value=self.transition.green;
+        self.blueSlider.value=self.transition.blue;
+    }
+    
+    
 }
 
 #pragma mark - UI Actions
@@ -63,7 +69,11 @@
 }
 
 - (IBAction)saveColor:(id)sender {
-    [self.database addTransitionWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value];
+    if ([self.segueAction isEqualToString:@"ADD"]) {
+        [self.database addTransitionWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value];
+    } else {
+        [self.database updateTransitionWithRowId:transition.rowId red:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value];
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 
