@@ -223,10 +223,26 @@
     if (sqlite3_exec(db, [sql UTF8String], NULL, NULL, &err) != SQLITE_OK) {
 //        NSAssert(0, @"Database error - addTransition Method error=%s",err);
 
-        NSLog(@"erro no banco de dados - %@",db);
+        NSLog(@"erro no banco de dados - addTransition - %@",db);
     }
 
 }
 
+-(void) removeTransitionWithRowId:(int)rowId
+{
+    // error variable for database call
+    char *err;
+    
+    // sql string
+    NSString *sql=[NSString stringWithFormat:@"delete from transition where rowId=%d",rowId];
+    
+    // execute database command
+    if (sqlite3_exec(db, [sql UTF8String], NULL, NULL, &err) != SQLITE_OK) {
+        //        NSAssert(0, @"Database error - removeTransition Method error=%s",err);
+        
+        NSLog(@"erro no banco de dados - removeTransition - %@",db);
+    }
+    
+}
 
 @end

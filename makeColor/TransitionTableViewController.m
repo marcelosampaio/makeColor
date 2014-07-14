@@ -8,6 +8,7 @@
 
 #import "TransitionTableViewController.h"
 #import "Transition.h"
+#import "AddTransitionViewController.h"
 #import "CustomTableViewCell.h"
 
 @interface TransitionTableViewController ()
@@ -105,59 +106,63 @@
     return cell;
 }
 
-//Altura da linha do TableView
+// custom cell height
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 54;
 }
-
-
-
-/*
-// Override to support conditional editing of the table view.
+// row edit
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+// remove row
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath: (NSIndexPath *)indexPath {
+    return @"Remove";
+    //    [self.tableView setEditing:!self.tableView.editing animated:YES];
+}
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+
+        // delete from database
+        Transition *transition=[self.transitions objectAtIndex:indexPath.row];
+        [self.database removeTransitionWithRowId:transition.rowId];
+        
+        // remove from source array
+        [self.transitions removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self performSegueWithIdentifier:@"editTransition" sender:self];
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    AddTransitionViewController *addTransitionViewController;
+    addTransitionViewController=segue.destinationViewController;
+    NSIndexPath *indexPath=[self.tableView indexPathForSelectedRow];
+    Transition *transition=[self.transitions objectAtIndex:indexPath.row];
+
+    if ([[segue identifier]isEqualToString:@"playTransitions"]) {
+  
+    } else if ([[segue identifier]isEqualToString:@"addTransition"]) {
+        [addTransitionViewController setSegueAction:@"ADD"];
+        [addTransitionViewController setSegueTransitionRowId:0];
+    } else if ([[segue identifier]isEqualToString:@"editTransition"]) {
+        [addTransitionViewController setSegueAction:@"EDIT"];
+        [addTransitionViewController setSegueTransitionRowId:transition.rowId];
+    }
+    
+    
 }
-*/
-
-
-//#pragma mark - Navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    // Get the new view controller using [segue destinationViewController].
-//    // Pass the selected object to the new view controller.
-//}
 
 
 @end

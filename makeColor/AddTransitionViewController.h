@@ -20,6 +20,9 @@
 // database property
 @property (nonatomic,strong) Database *database;
 
+// segue parameter
+@property (strong,nonatomic) NSString *segueAction;
+@property int segueTransitionRowId;
 
 
 

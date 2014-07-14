@@ -16,6 +16,7 @@
 
 @synthesize database;
 @synthesize imageView,redSlider,greenSlider,blueSlider;
+@synthesize segueAction,segueTransitionRowId;
 
 
 
@@ -43,6 +44,8 @@
     
     self.database=[[Database alloc]init];
     [self.database openDB];
+    
+    NSLog(@"segueAction = %@   segueTransitionRowId=%d",self.segueAction,self.segueTransitionRowId);
 
 }
 

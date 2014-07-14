@@ -161,13 +161,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="BHp-pD-9LB">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="BHp-pD-9LB">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BHp-pD-9LB" id="MWj-LN-QCh">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="QEu-tw-0qC" kind="push" identifier="editTransition" id="n5T-9L-ooe"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -178,7 +181,7 @@
                     <navigationItem key="navigationItem" title="Transitions" id="ihr-tT-c1q">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="Gh0-In-QWa">
                             <connections>
-                                <segue destination="QEu-tw-0qC" kind="push" identifier="showTransitions" id="kOI-g2-xTm"/>
+                                <segue destination="QEu-tw-0qC" kind="push" identifier="addTransition" id="kOI-g2-xTm"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="play" id="Vpw-4C-mPf">
@@ -233,31 +236,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sNq-RI-wra">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sNq-RI-wra">
                                 <rect key="frame" x="20" y="80" width="280" height="247"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="sDy-Xp-Rlx"/>
+                                    <constraint firstAttribute="height" constant="247" id="zfu-Ej-B0t"/>
+                                </constraints>
                             </imageView>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7eJ-Ng-UdJ">
-                                <rect key="frame" x="18" y="347" width="284" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7eJ-Ng-UdJ">
+                                <rect key="frame" x="18" y="442" width="284" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="710-jk-p5V"/>
+                                    <constraint firstAttribute="width" constant="280" id="SXR-8o-Mwh"/>
+                                </constraints>
                                 <color key="minimumTrackTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="changeRedColor:" destination="QEu-tw-0qC" eventType="valueChanged" id="ekS-87-6J8"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sKA-Cy-Ulq">
-                                <rect key="frame" x="18" y="385" width="284" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sKA-Cy-Ulq">
+                                <rect key="frame" x="18" y="480" width="284" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="pWm-eh-W4v"/>
+                                    <constraint firstAttribute="height" constant="30" id="zy9-fH-t6i"/>
+                                </constraints>
                                 <color key="minimumTrackTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="changeGreenColor:" destination="QEu-tw-0qC" eventType="valueChanged" id="M6l-Ma-3N3"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xtj-Wv-AuK">
-                                <rect key="frame" x="18" y="423" width="284" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xtj-Wv-AuK">
+                                <rect key="frame" x="18" y="518" width="284" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6Un-2e-1YV"/>
+                                    <constraint firstAttribute="width" constant="280" id="DUe-CU-cAK"/>
+                                </constraints>
                                 <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -266,6 +285,20 @@
                             </slider>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7eJ-Ng-UdJ" secondAttribute="trailing" constant="20" id="1se-DY-Sd7"/>
+                            <constraint firstItem="sNq-RI-wra" firstAttribute="top" secondItem="efj-29-sKT" secondAttribute="bottom" constant="16" id="9df-n9-xsy"/>
+                            <constraint firstItem="sNq-RI-wra" firstAttribute="leading" secondItem="Tbz-QB-pvt" secondAttribute="leading" constant="20" id="C7b-r2-J9t"/>
+                            <constraint firstAttribute="trailing" secondItem="sNq-RI-wra" secondAttribute="trailing" constant="20" id="FDc-zd-6AL"/>
+                            <constraint firstAttribute="trailing" secondItem="sKA-Cy-Ulq" secondAttribute="trailing" constant="20" id="LxV-i6-pjV"/>
+                            <constraint firstItem="sKA-Cy-Ulq" firstAttribute="top" secondItem="7eJ-Ng-UdJ" secondAttribute="bottom" constant="8" id="P31-cx-cT2"/>
+                            <constraint firstItem="sKA-Cy-Ulq" firstAttribute="leading" secondItem="Tbz-QB-pvt" secondAttribute="leading" constant="20" id="Y5a-4L-mMT"/>
+                            <constraint firstItem="Xtj-Wv-AuK" firstAttribute="leading" secondItem="Tbz-QB-pvt" secondAttribute="leading" constant="20" id="eAW-k9-IXP"/>
+                            <constraint firstItem="Xtj-Wv-AuK" firstAttribute="top" secondItem="sKA-Cy-Ulq" secondAttribute="bottom" constant="8" id="t7e-bx-Bua"/>
+                            <constraint firstItem="Y7t-6O-kEL" firstAttribute="top" secondItem="Xtj-Wv-AuK" secondAttribute="bottom" constant="20" id="tJZ-p2-NPS"/>
+                            <constraint firstItem="7eJ-Ng-UdJ" firstAttribute="leading" secondItem="Tbz-QB-pvt" secondAttribute="leading" constant="20" id="vkp-qz-wpB"/>
+                            <constraint firstAttribute="trailing" secondItem="Xtj-Wv-AuK" secondAttribute="trailing" constant="20" id="zeL-DN-MFI"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4pK-dd-zFG">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Yx9-27-Qrm">
@@ -331,6 +364,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="n5T-9L-ooe"/>
         <segue reference="Hha-hk-4V3"/>
     </inferredMetricsTieBreakers>
 </document>
