@@ -13,7 +13,6 @@
 @interface TransitionTableViewController : UITableViewController
 
 
-
 @property (nonatomic,strong) NSMutableArray *transitions;
 
 

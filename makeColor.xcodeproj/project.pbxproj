@@ -17,6 +17,8 @@
 		9CA9FA9C19719AC100C540D4 /* AddTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA9FA9B19719AC100C540D4 /* AddTransitionViewController.m */; };
 		9CA9FAA01971ADF800C540D4 /* makeColor.db in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9FA9F1971ADF800C540D4 /* makeColor.db */; };
 		9CA9FAA31971BBA000C540D4 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA9FAA21971BBA000C540D4 /* PlayerViewController.m */; };
+		9CA9FAB4197432B900C540D4 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA9FAB2197432B900C540D4 /* CustomTableViewCell.m */; };
+		9CA9FAB5197432B900C540D4 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9FAB3197432B900C540D4 /* CustomTableViewCell.xib */; };
 		9CCBBFFD185AABA2006CD50A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCBBFFC185AABA2006CD50A /* Foundation.framework */; };
 		9CCBBFFF185AABA2006CD50A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCBBFFE185AABA2006CD50A /* CoreGraphics.framework */; };
 		9CCBC001185AABA2006CD50A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCBC000185AABA2006CD50A /* UIKit.framework */; };
@@ -62,6 +64,9 @@
 		9CA9FA9F1971ADF800C540D4 /* makeColor.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = makeColor.db; sourceTree = "<group>"; };
 		9CA9FAA11971BBA000C540D4 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		9CA9FAA21971BBA000C540D4 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		9CA9FAB1197432B900C540D4 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		9CA9FAB2197432B900C540D4 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		9CA9FAB3197432B900C540D4 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		9CCBBFF9185AABA2006CD50A /* makeColor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = makeColor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CCBBFFC185AABA2006CD50A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9CCBBFFE185AABA2006CD50A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -151,6 +156,9 @@
 				9CA9FA9519718B2000C540D4 /* Transition.m */,
 				9CCBC00E185AABA2006CD50A /* Main_iPhone.storyboard */,
 				9CCBC011185AABA2006CD50A /* Main_iPad.storyboard */,
+				9CA9FAB3197432B900C540D4 /* CustomTableViewCell.xib */,
+				9CA9FAB1197432B900C540D4 /* CustomTableViewCell.h */,
+				9CA9FAB2197432B900C540D4 /* CustomTableViewCell.m */,
 				9CA9FA81197034B800C540D4 /* PresentationTableViewController.h */,
 				9CA9FA82197034B800C540D4 /* PresentationTableViewController.m */,
 				9CA9FA8B19705D4D00C540D4 /* AddPresentationViewController.h */,
@@ -278,6 +286,7 @@
 			files = (
 				9CCBC013185AABA2006CD50A /* Main_iPad.storyboard in Resources */,
 				9CCBC018185AABA2006CD50A /* Images.xcassets in Resources */,
+				9CA9FAB5197432B900C540D4 /* CustomTableViewCell.xib in Resources */,
 				9CCBC010185AABA2006CD50A /* Main_iPhone.storyboard in Resources */,
 				9CCBC007185AABA2006CD50A /* InfoPlist.strings in Resources */,
 				9CA9FAA01971ADF800C540D4 /* makeColor.db in Resources */,
@@ -304,6 +313,7 @@
 				9CA9FA9619718B2000C540D4 /* Transition.m in Sources */,
 				9CA9FA901970790A00C540D4 /* Presentation.m in Sources */,
 				9CA9FA9C19719AC100C540D4 /* AddTransitionViewController.m in Sources */,
+				9CA9FAB4197432B900C540D4 /* CustomTableViewCell.m in Sources */,
 				9CA9FA8D19705D4D00C540D4 /* AddPresentationViewController.m in Sources */,
 				9CCBC00D185AABA2006CD50A /* AppDelegate.m in Sources */,
 				9CA9FA8A1970412800C540D4 /* Database.m in Sources */,

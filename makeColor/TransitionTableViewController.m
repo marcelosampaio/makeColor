@@ -8,6 +8,7 @@
 
 #import "TransitionTableViewController.h"
 #import "Transition.h"
+#import "CustomTableViewCell.h"
 
 @interface TransitionTableViewController ()
 
@@ -17,6 +18,7 @@
 
 @synthesize transitions;
 @synthesize database;
+
 
 
 #pragma mark - View Initialization
@@ -81,18 +83,34 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    static NSString *simpleTableIdentifier = @"customCell";
+    CustomTableViewCell *cell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell==nil)  //Instancia celulas suficientes para uma tela
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+
     
     // Configure the cell...
 
     Transition *transition=[self.transitions objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text=[NSString stringWithFormat:@"%f / %f / %f",transition.red,transition.green,transition.blue];
-
-    
+    cell.imageView.backgroundColor=[UIColor colorWithRed:transition.red green:transition.green blue:transition.blue alpha:1];
+    cell.redLabel.text=[NSString stringWithFormat:@"%f",transition.red];
+    cell.greenLabel.text=[NSString stringWithFormat:@"%f",transition.green];
+    cell.blueLabel.text=[NSString stringWithFormat:@"%f",transition.blue];
     
     return cell;
 }
+
+//Altura da linha do TableView
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 54;
+}
+
 
 
 /*
