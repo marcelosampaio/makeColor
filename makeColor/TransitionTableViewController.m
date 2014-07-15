@@ -17,6 +17,7 @@
 
 @implementation TransitionTableViewController
 
+@synthesize playOutlet;
 @synthesize transitions;
 @synthesize database;
 
@@ -54,13 +55,13 @@
     [self.database openDB];
     // load source
     [self loadTransitions];
+    if (self.transitions.count<=1) {
+        self.playOutlet.enabled=NO;
+    }else{
+        self.playOutlet.enabled=YES;
+    }
 
 }
-
-#pragma mark - UI Actions
-- (IBAction)play:(id)sender {
-}
-
 
 #pragma mark - Working Methods
 -(void)loadTransitions {
@@ -149,8 +150,11 @@
     AddTransitionViewController *addTransitionViewController;
     addTransitionViewController=segue.destinationViewController;
     NSIndexPath *indexPath=[self.tableView indexPathForSelectedRow];
-    Transition *transition=[self.transitions objectAtIndex:indexPath.row];
-
+    
+    Transition *transition=[[Transition alloc]init];
+    if (self.transitions.count>0) {
+        transition=[self.transitions objectAtIndex:indexPath.row];
+    }
     if ([[segue identifier]isEqualToString:@"playTransitions"]) {
   
     } else if ([[segue identifier]isEqualToString:@"addTransition"]) {

@@ -12,6 +12,8 @@
 
 @interface TransitionTableViewController : UITableViewController
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *playOutlet;
+
 
 @property (nonatomic,strong) NSMutableArray *transitions;
 

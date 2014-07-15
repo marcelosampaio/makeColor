@@ -73,14 +73,24 @@
     [self redPulsing];
     [self greenPulsing];
     [self bluePulsing];
-    
+    NSLog(@"pulsing... index=%d  red=%f green=%f blue=%f",index,self.redNewValue,self.greenNewValue,self.blueNewValue);
     // Check stopSeeding
     if (self.redStopSeeding && self.greenStopSeeding && self.blueStopSeeding) {
-        NSLog(@"******* STOP SEEDING event reached ******* count=%d   index=%d",self.transitions.count,self.index);
-        [self.timer invalidate];
+        NSLog(@"******* STOP SEEDING event reached ******* index=%d   count=%d",self.index,self.transitions.count);
+        // --------
+        index++;
+        self.redStopSeeding=NO;
+        self.greenStopSeeding=NO;
+        self.blueStopSeeding=NO;
+        self.firstTime=YES;
+        [self loopControl];
+        // --------
+//       if (index=self.transitions.count) {
+//           NSLog(@"TIMER INVALIDATE");
+//           [self.timer invalidate];
+//        }
     }
-    
-    
+
     self.imageView.backgroundColor=[UIColor colorWithRed:self.redNewValue green:self.greenNewValue blue:self.blueNewValue alpha:1];
 }
 
@@ -96,7 +106,7 @@
         return;
     }
     
-    if (redBegin<self.redEnd) {
+    if (self.redBegin<self.redEnd) {
         if (self.redNewValue>self.redEnd) {
             self.redStopSeeding=YES;
             return;
@@ -136,7 +146,7 @@
         return;
     }
     
-    if (blueBegin<self.blueEnd) {
+    if (self.blueBegin<self.blueEnd) {
         if (self.blueNewValue>self.blueEnd) {
             self.blueStopSeeding=YES;
             return;
@@ -155,6 +165,7 @@
 
     // Range Values
     if (self.firstTime) {
+        NSLog(@"LOOP CONTROL - FIRST TIME <---------------------");
         self.redBegin=transitionBegin.red;
         self.redEnd=transitionEnd.red;
         self.redNewValue=self.redBegin;

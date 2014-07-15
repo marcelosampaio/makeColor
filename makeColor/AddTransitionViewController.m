@@ -33,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     self.imageView.backgroundColor=[UIColor blackColor];
     self.redSlider.value=0.00f;
     self.redSlider.maximumTrackTintColor=[UIColor blackColor];
